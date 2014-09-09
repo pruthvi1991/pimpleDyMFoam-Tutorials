@@ -2,11 +2,11 @@ This is a flatplate airfoil with zero camber. The motion is SHM. This is a very 
 
 snappyOutlets is the meshing file. simpleOutlets is the steady state solver. Outletspimple is the dynamic mesh motion solver.
 
-To run the whole case execute the Allrun script.
+To run the whole case, execute the Allrun script.
 
 To clean, run the Allclean script.
 
 To change the ambient velocity, make the change in both simpleOutlets and Outletspimple. 
 
-To modify the motion go to /Outletspimple/constant/dynamicMeshDict and change the spring parameters, initial velocity. Be careful not to give a motion which will deform the mesh too much. A badly deformed mesh will cause the solution to crash. An easy way to verify if the mesh motion is within acceptable limits is to go to /OutletsDyM , make the changes to the dynamicMeshDict file and then run it. Remember to run it twice. This file runs only the mesh motion without considering the flow field. After running the file, open paraFoam and visually examine the motion. This will save a lot of time and frustration. This was adopted from Alejandro Roger Ull's work on dynamic meshes in OpenFOAM. Here is the link to his post in the cfd-online forum http://www.cfd-online.com/Forums/openfoam/103804-dynamic-mesh-gear-pump.html . 
+To modify the motion go to /Outletspimple/constant/dynamicMeshDict and change the spring parameters, initial velocity. Be careful not to give a motion which will deform the mesh too much. A badly deformed mesh will cause the solution to crash. An easy way to verify if the mesh motion is within acceptable limits is to go to /OutletsDyM , input the parameters to the dynamicMeshDict file and then run it. Remember to run it twice. This file runs only the mesh motion without considering the flow field. After running the file, open paraFoam and visually examine the motion. This will save a lot of time and frustration. This was adopted from Alejandro Roger Ull's work on dynamic meshes in OpenFOAM. Here is the link to his post in the cfd-online forum http://www.cfd-online.com/Forums/openfoam/103804-dynamic-mesh-gear-pump.html . 
 
