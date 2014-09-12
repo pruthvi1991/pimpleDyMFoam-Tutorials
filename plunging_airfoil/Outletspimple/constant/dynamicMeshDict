@@ -23,23 +23,21 @@ solver            sixDoFRigidBodyMotion;
 sixDoFRigidBodyMotionCoeffs
 {
     patches         (wing);
-    innerDistance   0.003;
-    outerDistance   0.035;
-    velocit	    (0 1 0);
-
+    innerDistance   0.003;		// Extent of mesh motion
+    outerDistance   0.035;		// Extent of mesh motion
     mass            3;
     centreOfMass    (0 0 0.00125);
     momentOfInertia (1.958864357 3.920839234 700000000);
-    orientation
+    orientation				// Fill up the matrix for other desired angles
     (
         1 0 0
         0 1 0
         0 0 1
     );
-    angularMomentum (0 0 0);
-    g               (0 0 0);
+    angularMomentum (0 0 0);		// initial angular momentum of the patch
+    g               (0 0 0);		// Accelration due to gravity
     rhoName         rhoInf;
-    velocity	    (0 1 0);
+    velocity	    (0 1 0);		// initial velocity of the patch
     rhoInf          1;
     report          on;
 
@@ -48,13 +46,13 @@ sixDoFRigidBodyMotionCoeffs
         yLine
         {
             sixDoFRigidBodyMotionConstraint line;
-            direction       (0 1 0);
+            direction       (0 1 0);			// Constraining direction
         }
 
         zAxis
         {
             sixDoFRigidBodyMotionConstraint axis;
-            axis            (0 0 1);
+            axis            (0 0 1);			// Constraining direction
         }
 	
     }
@@ -65,11 +63,11 @@ sixDoFRigidBodyMotionCoeffs
         {
             sixDoFRigidBodyMotionRestraint linearSpring;
 
-            anchor          (0 0 0.00125);
-            refAttachmentPt (0 0 0.00125);
+            anchor          (0 0 0.00125);		// *Dont know what these exactly do* 
+            refAttachmentPt (0 0 0.00125);		// *Dont know what these exactly do*
             stiffness       20833.33;
             damping         0;
-            restLength      0;
+            restLength      0;				// Mean position, measured from anchor. *This needs to be verified by somebody*
         }
 	
        
