@@ -1,0 +1,13 @@
+#!/bin/sh
+
+cd ${0%/*} || exit 1    # run from this directory
+
+cd snappy/
+./run
+cd ../simple/
+./run
+cd ../plungingpimple/
+./run
+cd ../plungingAmbient/
+./run
+
