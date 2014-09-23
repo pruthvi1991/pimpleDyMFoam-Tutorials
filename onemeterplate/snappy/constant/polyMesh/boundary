@@ -20,41 +20,41 @@ FoamFile
     topAndBottom
     {
         type            patch;
-        nFaces          120;
-        startFace       901118;
+        nFaces          240;
+        startFace       1398230;
     }
     inlet
     {
         type            patch;
-        nFaces          60;
-        startFace       901238;
+        nFaces          120;
+        startFace       1398470;
     }
     outlet
     {
         type            patch;
-        nFaces          60;
-        startFace       901298;
+        nFaces          120;
+        startFace       1398590;
     }
     symFront
     {
         type            symmetryPlane;
         inGroups        1(symmetryPlane);
-        nFaces          29356;
-        startFace       901358;
+        nFaces          66103;
+        startFace       1398710;
     }
     symBack
     {
         type            symmetryPlane;
         inGroups        1(symmetryPlane);
-        nFaces          29356;
-        startFace       930714;
+        nFaces          66103;
+        startFace       1464813;
     }
     wing
     {
         type            wall;
         inGroups        1(wall);
-        nFaces          13824;
-        startFace       960070;
+        nFaces          8064;
+        startFace       1530916;
     }
 )
 
