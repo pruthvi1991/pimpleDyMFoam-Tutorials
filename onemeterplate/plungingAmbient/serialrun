@@ -10,9 +10,9 @@ cp -r ../simple/constant/polyMesh/* constant/polyMesh/
 cp -r 0.org 0
 runApplication mapFields ../simple -sourceTime latestTime -consistent
 mv 0/pointDisplacement.unmapped 0/pointDisplacement
-runApplication decomposePar
-runParallel `getApplication` 8
-#pimpleDyMFoam
-runApplication reconstructPar
-rm -r processor*
+#runApplication decomposePar
+#runParallel `getApplication` 4
+pimpleDyMFoam
+#runApplication reconstructPar
+#rm -r processor*
 # ----------------------------------------------------------------- end-of-file

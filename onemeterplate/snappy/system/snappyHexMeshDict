@@ -37,8 +37,8 @@ geometry
     refinementBox
     {
         type    searchableBox;
-        min     (-1 -1 -0.1);
-        max     ( 2  1  0.1);
+        min     (-4 -1 -0.1);  //(-1 -1 0.1)
+        max     (14  1  0.1);  //(2 1 0.1)
     }
 };
 

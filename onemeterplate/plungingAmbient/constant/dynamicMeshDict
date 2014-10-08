@@ -26,8 +26,8 @@ sixDoFRigidBodyMotionCoeffs
     innerDistance   0.3;
     outerDistance   3.5;
 
-    mass            100000; //10;
-    centreOfMass    (0.2285 0.005 0.00125);
+    mass            100000;
+    centreOfMass    (0.5 0.005 0.00125);
     momentOfInertia (1.958864357 3.920839234 700000000);
     orientation
     (
@@ -36,7 +36,7 @@ sixDoFRigidBodyMotionCoeffs
         0 0 1
     );
     angularMomentum (0 0 0);
-    velocity 	    (0 0.0384 0);
+    velocity 	    (0 0.0384 0); //0.0384
     g               (0 0 0);
     rhoName         rhoInf;
     rhoInf          1;
@@ -63,9 +63,9 @@ sixDoFRigidBodyMotionCoeffs
         {
             sixDoFRigidBodyMotionRestraint linearSpring;
 
-            anchor          (0.2285 0.005 0.005);
-            refAttachmentPt (0.2285 0.005 0.005);
-            stiffness       568.4892135; //200
+            anchor          (0.5 0.005 0.005);
+            refAttachmentPt (0.5 0.005 0.005);
+            stiffness       568.4892135;
             damping         0;
             restLength      0;
         }
