@@ -1,0 +1,86 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      dynamicMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dynamicFvMesh      dynamicMotionSolverFvMesh;
+
+motionSolverLibs ("libsixDoFRigidBodyMotion.so");
+
+solver            sixDoFRigidBodyMotion;
+
+sixDoFRigidBodyMotionCoeffs
+{
+    patches         (wing);
+    innerDistance   0.3;
+    outerDistance   2;
+
+    mass            100000;
+    centreOfMass    (0.4974612746 -0.01671895744 0.125);
+    momentOfInertia (1.958864357 3.920839234 2.057121362);
+    orientation
+    (
+        0.9953705935 0.09611129781 0
+       -0.09611129781 0.9953705935 0
+        0 0 1
+    );
+    angularMomentum (0 0 0);
+    g               (0 0 0);
+    velocity	    (0 0.0384 0);
+    rhoName         rhoInf;
+    rhoInf          1;
+    report          on;
+
+    constraints
+    {
+        yLine
+        {
+            sixDoFRigidBodyMotionConstraint line;
+            direction       (0 1 0);
+        }
+
+        zAxis
+        {
+            sixDoFRigidBodyMotionConstraint axis;
+            axis            (0 0 1);
+        }
+    }
+
+    restraints
+    {
+        verticalSpring
+        {
+            sixDoFRigidBodyMotionRestraint linearSpring;
+
+            anchor          (0.4974612746 -0.01671895744 0.125);
+            refAttachmentPt (0.4974612746 -0.01671895744 0.125);
+            stiffness       568.4892135;
+            damping         0;
+            restLength      0;
+        }
+
+        axialSpring
+        {
+            sixDoFRigidBodyMotionRestraint linearAxialAngularSpring;
+
+            axis            (0 0 1);
+            stiffness       0;
+            damping         50000000000;
+            referenceOrientation $orientation;
+        }
+    }
+}
+
+
+// ************************************************************************* //

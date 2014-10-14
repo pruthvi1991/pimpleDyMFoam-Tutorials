@@ -1,0 +1,5 @@
+#!/bin/bash
+
+reconstructPar
+rm -r processor*
+paraFoam
