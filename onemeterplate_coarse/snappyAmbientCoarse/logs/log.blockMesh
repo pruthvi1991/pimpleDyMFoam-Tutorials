@@ -1,0 +1,72 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.x                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : 2.3.x-9606d1dace48
+Exec   : blockMesh
+Date   : Feb 06 2015
+Time   : 11:47:47
+Host   : "jujjamachine"
+PID    : 5786
+Case   : /home/jujja/OpenFOAM/root-2.3.x/run/tutorials/incompressible/pimpleDyMFoam/onemeterplate/snappyAmbient
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Creating block mesh from
+    "/home/jujja/OpenFOAM/root-2.3.x/run/tutorials/incompressible/pimpleDyMFoam/onemeterplate/snappyAmbient/constant/polyMesh/blockMeshDict"
+Creating curved edges
+Creating topology blocks
+Creating topology patches
+
+Creating block mesh topology
+
+Check topology
+
+	Basic statistics
+		Number of internal faces : 0
+		Number of boundary faces : 6
+		Number of defined boundary faces : 6
+		Number of undefined boundary faces : 0
+	Checking patch -> block consistency
+
+Creating block offsets
+Creating merge list .
+
+Creating polyMesh from blockMesh
+Creating patches
+Creating cells
+Creating points with scale 1
+    Block 0 cell size :
+        i : 0.103768 .. 0.415072
+        j : 0.15 .. 0.15
+        k : 0.2 .. 0.2
+
+
+Writing polyMesh
+----------------
+Mesh Information
+----------------
+  boundingBox: (-4 -6 -0.1) (14 6 0.1)
+  nPoints: 13122
+  nCells: 6400
+  nFaces: 25760
+  nInternalFaces: 12640
+----------------
+Patches
+----------------
+  patch 0 (start: 12640 size: 160) name: topAndBottom
+  patch 1 (start: 12800 size: 80) name: inlet
+  patch 2 (start: 12880 size: 80) name: outlet
+  patch 3 (start: 12960 size: 6400) name: symFront
+  patch 4 (start: 19360 size: 6400) name: symBack
+
+End
+
