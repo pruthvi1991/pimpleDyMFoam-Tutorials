@@ -1,0 +1,86 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      dynamicMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dynamicFvMesh      dynamicMotionSolverFvMesh;
+
+motionSolverLibs ("libsixDoFRigidBodyMotion.so");
+
+solver            sixDoFRigidBodyMotion;
+
+sixDoFRigidBodyMotionCoeffs
+{
+    patches         (wing);
+    innerDistance   0.8;
+    outerDistance   3;
+
+    mass            10000;
+    centreOfMass    (0 0 0.00125);
+    momentOfInertia (1.958864357 3.920839234 700000000);
+    orientation
+    (
+        1 0 0
+        0 1 0
+        0 0 1
+    );
+    angularMomentum (0 0 0);
+    velocity 	    (0 0.042044 0); //0.0384
+    g               (0 0 0);
+    rhoName         rhoInf;
+    rhoInf          1.225;
+    report          on;
+
+    constraints
+    {
+        yLine
+        {
+            sixDoFRigidBodyMotionConstraint line;
+            direction       (0 1 0);
+        }
+
+        zAxis
+        {
+            sixDoFRigidBodyMotionConstraint axis;
+            axis            (0 0 1);
+        }
+    }
+
+    restraints
+    {
+        verticalSpring
+        {
+            sixDoFRigidBodyMotionRestraint linearSpring;
+
+            anchor          (0 0 0.005);
+            refAttachmentPt (0 0 0.005);
+            stiffness       13225; // 531.2215873;
+            damping         0;
+            restLength      0;
+        }
+
+        axialSpring
+        {
+            sixDoFRigidBodyMotionRestraint linearAxialAngularSpring;
+
+            axis            (0 0 1);
+            stiffness       10000000;
+            damping         100000000;
+            referenceOrientation $orientation;
+        }
+    }
+}
+
+
+// ************************************************************************* //
