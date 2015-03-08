@@ -8,6 +8,6 @@ cd snappyAmbientCoarse_airfoil
 ./clean.sh
 ./run.sh
 cd ../plunging_NACA0012/
-./clean.sh
-./serialrun.sh
+./cleanCase.sh
+./run.sh
 # ----------------------------------------------------------------- end-of-file

@@ -14,7 +14,7 @@ cp -r 0.org 0
 ##runApplication mapFields ../simpleCoarseAmbient -sourceTime latestTime -consistent
 ##mv 0/pointDisplacement.unmapped 0/pointDisplacement
 runApplication decomposePar
-runParallel `getApplication` 8
+runParallel `getApplication` 4
 runApplication reconstructPar
 #rm -r processor*
 # ----------------------------------------------------------------- end-of-file

@@ -87,7 +87,7 @@ castellatedMeshControls
 	features
     	(
        	 {
-        	 file "wing_5degreesm.extendedFeatureEdgeMesh";
+        	 file "NACA0012.extendedFeatureEdgeMesh";
            	 level 3;
        	 }
 	);
